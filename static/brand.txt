@@ -1,10 +1,11 @@
-# {{BRAND NAME}} — BRAND PRIME (brand.txt)
+# {{BRAND NAME}} — brand.txt
 
 > {{LOCKUP}} · {{TAGLINE}}
 
 This is the all-in-one brand file. One URL primes any agent to generate on-brand assets:
 everything is inline below, and every brand asset is linked as an absolute URL.
 Canonical repo manifest: BRAND.md + brand.json. This file is generated at build time from them.
+Format: the brand.txt standard — https://www.appliedai.wiki/reference/standards/brand-txt
 
 ## Identity
 - Brand: {{BRAND NAME}}  |  Lockup: {{LOCKUP}}  |  Handle: {{handle}}
@@ -16,6 +17,7 @@ Canonical repo manifest: BRAND.md + brand.json. This file is generated at build 
 - Non-negotiable: {{rule 2}}
 
 ## How to generate an on-brand asset
+Fastest path: follow a HOSTED SKILL below (it automates these steps). Otherwise, by hand:
 1. Prepend the MASTER PROMPT below.
 2. Pass the relevant GOLDEN ATOMIC BRAND REFERENCE image URL(s) to your image model as input/reference images (especially for reused elements like the mark or a mascot).
 3. Describe the new asset. Honor the BANNED TERMS.
@@ -49,6 +51,9 @@ NEVER look like (the anti-patterns).}}
 - Visual: {{visual term}}
 
 ## Logo matrix (absolute URLs)
+
+## On-brand asset skills (hosted procedures — follow these to generate)
+- https://{{your-domain}}/brand/generation-layer/skills/create-on-brand-image/SKILL.md
 
 ## Golden Atomic Brand References (reference images — pass these to the image model)
 
