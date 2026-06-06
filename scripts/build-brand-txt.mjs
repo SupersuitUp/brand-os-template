@@ -64,6 +64,7 @@ A('');
 A('This is the all-in-one brand file. One URL primes any agent to generate on-brand assets:');
 A('everything is inline below, and every brand asset is linked as an absolute URL.');
 A('Canonical repo manifest: BRAND.md + brand.json. This file is generated at build time from them.');
+A('Format: the brand.txt standard — https://www.appliedai.wiki/reference/standards/brand-txt');
 A('');
 A('## Identity');
 A(`- Brand: ${bj.brand}  |  Lockup: ${bj.lockup || ''}  |  Handle: ${bj.handle || ''}`);
