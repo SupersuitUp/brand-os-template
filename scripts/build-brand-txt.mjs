@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Build /brand.txt — the all-in-one "Brand Prime" file (llms.txt for a brand).
+ * Build /brand.txt — the all-in-one brand.txt file (llms.txt for a brand).
  * Runs at build time (prebuild/prestart) so it always reflects current assets.
  *
  * One statically-served page that primes any agent harness to generate on-brand
@@ -57,7 +57,7 @@ const type = bj.tokens?.type || {};
 const L = [];
 const A = (s = '') => L.push(s);
 
-A(`# ${bj.brand} — BRAND PRIME (brand.txt)`);
+A(`# ${bj.brand} — brand.txt`);
 A('');
 A(`> ${bj.lockup || ''} · ${bj.tagline || ''}`);
 A('');

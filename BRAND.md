@@ -2,7 +2,15 @@
 
 > {{LOCKUP}} · **{{TAGLINE}}**
 
-This file is the manifest. Read it first. It names the brand, the aesthetic posture, the components, and the path to every usable artifact. This repo is a Docusaurus portal (`pnpm install && pnpm start`); the brand asset package lives under [`static/brand/`](./static/brand/) and is served at `/brand/...`. The manifest trio at root — this file, [`brand.json`](./brand.json), [`tokens.css`](./tokens.css) — is the **source of truth**.
+This file is the human front door. Read it first. It names the brand, the aesthetic posture, the components, and the path to every usable artifact. This repo is a Docusaurus portal (`pnpm install && pnpm start`); the brand asset package lives under [`static/brand/`](./static/brand/) and is served at `/brand/...`.
+
+**Three surfaces, one brand** (different contexts, not redundant):
+
+- **[`brand.json`](./brand.json)** — the structured **data** (source of truth for facts).
+- **`BRAND.md`** (this file) — the human **front door**: prose + how to consume.
+- **`/brand.txt`** — the generated, served **prime**: essentials inlined + absolute asset URLs; the one link to paste into any agent harness ([what is brand.txt](https://www.appliedai.wiki/reference/standards/brand-txt)).
+
+Plus [`tokens.css`](./tokens.css) for color + type.
 
 ## What {{BRAND NAME}} is
 

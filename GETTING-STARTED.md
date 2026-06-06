@@ -41,7 +41,7 @@ Edit `docs/*.mdx` (logos, color, type, voice, golden-atomic-brand-references, ge
 
 `pnpm build`, then deploy (Vercel auto-detects Docusaurus). Commit each generation prompt next to its output.
 
-**The Brand Prime file (`/brand.txt`)** is auto-generated at build time (`prebuild` → `scripts/build-brand-txt.mjs`) from `brand.json` + your assets. Set `brand.json#site_url` (or the `BRAND_BASE_URL` env) so its absolute URLs are correct. This one statically-served file primes any agent harness — paste its URL and an agent can generate on-brand assets without repo access.
+**The brand.txt file (`/brand.txt`)** is auto-generated at build time (`prebuild` → `scripts/build-brand-txt.mjs`) from `brand.json` + your assets. Set `brand.json#site_url` (or the `BRAND_BASE_URL` env) so its absolute URLs are correct. This one statically-served file primes any agent harness — paste its URL and an agent can generate on-brand assets without repo access.
 
 ## Principles to keep
 
