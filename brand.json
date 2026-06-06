@@ -58,5 +58,7 @@
   },
   "portal": { "framework": "Docusaurus 3 + Tailwind v4", "run": "pnpm install && pnpm start" },
   "manifest": "BRAND.md",
+  "site_url": "https://{{your-domain}}",
+  "brand_prime": "static/brand.txt (auto-generated at build time by scripts/build-brand-txt.mjs)",
   "generated_by": "generate-a-brand-os recipe"
 }

@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "brand-txt": "node scripts/build-brand-txt.mjs",
+    "prestart": "node scripts/build-brand-txt.mjs",
+    "prebuild": "node scripts/build-brand-txt.mjs",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",

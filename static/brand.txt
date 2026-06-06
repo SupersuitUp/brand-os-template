@@ -1,0 +1,62 @@
+# {{BRAND NAME}} — BRAND PRIME (brand.txt)
+
+> {{LOCKUP}} · {{TAGLINE}}
+
+This is the all-in-one brand file. One URL primes any agent to generate on-brand assets:
+everything is inline below, and every brand asset is linked as an absolute URL.
+Canonical repo manifest: BRAND.md + brand.json. This file is generated at build time from them.
+
+## Identity
+- Brand: {{BRAND NAME}}  |  Lockup: {{LOCKUP}}  |  Handle: {{handle}}
+- Tagline: {{TAGLINE}}
+- One-liner: {{the simple version}}
+- Audience: {{who it's for}}
+- Archetype: {{the character}}
+- Non-negotiable: {{rule 1}}
+- Non-negotiable: {{rule 2}}
+
+## How to generate an on-brand asset
+1. Prepend the MASTER PROMPT below.
+2. Pass the relevant GOLDEN ATOMIC BRAND REFERENCE image URL(s) to your image model as input/reference images (especially for reused elements like the mark or a mascot).
+3. Describe the new asset. Honor the BANNED TERMS.
+4. For finished/distributable assets, STAMP the real wordmark PNG (linked below) into a reserved band — do not let the model draw the wordmark text.
+5. Use the COLOR + TYPE tokens for any code/site/deck.
+
+## Master prompt (copy verbatim, prepend to any request)
+```text
+{{Your render brief. Cover: the ground/background, the line/illustration style,
+the color treatment (reference your tokens), texture, lighting, recurring
+mascots/motifs, the overall energy/feeling. State margins. State what it must
+NEVER look like (the anti-patterns).}}
+```
+
+## Color tokens
+- ground: {{#hex}}
+- ink: {{#hex}}
+- primary: {{#hex}}
+- accent: {{#hex}}
+
+## Type
+- display: {{Display Font}} — https://{{your-domain}}/brand/fonts/{{Display.ttf}}
+- body: {{Body Font}} — https://{{your-domain}}/brand/fonts/{{Body.ttf}}
+
+## Voice
+- Motto: {{the motto}}
+- Tone: {{tone}}
+
+## Banned terms
+- Words: {{word}}
+- Visual: {{visual term}}
+
+## Logo matrix (absolute URLs)
+
+## Golden Atomic Brand References (reference images — pass these to the image model)
+
+## Fonts
+
+## Tokens + manifest
+- tokens.css: https://{{your-domain}}/brand/tokens.css
+- generation layer: https://{{your-domain}}/brand/generation-layer/
+
+---
+Generated at build time by scripts/build-brand-txt.mjs. BASE_URL=https://{{your-domain}}
