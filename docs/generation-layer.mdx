@@ -1,0 +1,48 @@
+---
+title: Generation layer
+sidebar_label: Generation layer
+---
+
+# Generation layer
+
+The machine half of the brand OS: what you hand an image model to get on-brand output. Files live in [`static/brand/generation-layer/`](/brand/generation-layer/).
+
+## Master prompt
+
+The always-on style preamble — **copy it** (hover the block, hit the copy button) and prepend it to any asset request. Fill it from your aesthetic posture.
+
+```text title="Master prompt"
+[[Your render brief: ground/background, line/illustration style, color treatment, texture, lighting, recurring mascots/motifs, overall energy. State margins. State what it must NEVER look like.]]
+```
+
+## Example prompts
+
+Copy-paste-ready per-asset starting points (`[BRACKETS]` are placeholders). See [`example-prompts.md`](/brand/generation-layer/example-prompts.md).
+
+```text title="[[asset name]]"
+[paste master prompt] [[per-asset instruction with [PLACEHOLDERS]. For finished assets, reserve a band and stamp the real wordmark.]]
+```
+
+## Reference set
+
+Use your [Golden Atomic Brand References](/golden-atomic-brand-references) as in-context image references. Pass the relevant one in for any reused element so style never drifts.
+
+## The always-on lockup workflow
+
+1. Generate the art layer **clean** — reserve an empty band; don't ask the model to draw the wordmark.
+2. **Stamp the real wordmark PNG** into the band programmatically. Crisp and identical every time.
+
+## Banned terms
+
+Define visual + verbal bans. See [`banned-terms.md`](/brand/generation-layer/banned-terms.md).
+
+## Illustration spec
+
+Per-asset canvas sizes, margins, and rules live in [`illustrations/SPEC.md`](/brand/generation-layer/illustrations/SPEC.md).
+
+## The discipline
+
+- Store every render's **prompt next to the output**.
+- **Validate** each new exemplar before it becomes golden.
+- **Pass golden references back in** for reused elements.
+- The repo + `BRAND.md` stay canonical; this portal renders over them.

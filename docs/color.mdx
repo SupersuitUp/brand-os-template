@@ -1,0 +1,35 @@
+---
+title: Color
+sidebar_label: Color
+---
+
+# Color
+
+Define semantic roles (ground, ink, primary, accent, status) with a hex each in [`tokens.css`](/brand/tokens.css) and mirror them into `src/css/custom.css` `@theme` so Tailwind utilities (`bg-brand-primary`, `text-brand-ink`, …) generate. Ground is rarely pure white — confirm the off-white.
+
+These swatches read from the placeholder tokens — replace them:
+
+<div className="grid gap-4 my-6 grid-cols-2 md:grid-cols-4">
+  <div className="rounded-lg border-2 border-brand-ink overflow-hidden bg-white">
+    <div className="h-24 bg-brand-ground border-b-2 border-brand-ink"></div>
+    <div className="p-2 text-sm"><b className="block">Ground</b><code>--color-brand-ground</code></div>
+  </div>
+  <div className="rounded-lg border-2 border-brand-ink overflow-hidden bg-white">
+    <div className="h-24 bg-brand-ink"></div>
+    <div className="p-2 text-sm"><b className="block">Ink</b><code>--color-brand-ink</code></div>
+  </div>
+  <div className="rounded-lg border-2 border-brand-ink overflow-hidden bg-white">
+    <div className="h-24 bg-brand-primary"></div>
+    <div className="p-2 text-sm"><b className="block">Primary</b><code>--color-brand-primary</code></div>
+  </div>
+  <div className="rounded-lg border-2 border-brand-ink overflow-hidden bg-white">
+    <div className="h-24 bg-brand-accent"></div>
+    <div className="p-2 text-sm"><b className="block">Accent</b><code>--color-brand-accent</code></div>
+  </div>
+</div>
+
+:::tip[Tokens are the source of truth]
+
+Add as many roles as your brand needs (status colors, a full accent set). Everything — portal, generated sites, decks — pulls from `tokens.css`.
+
+:::

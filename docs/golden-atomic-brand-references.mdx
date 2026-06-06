@@ -1,0 +1,36 @@
+---
+title: Golden Atomic Brand References
+sidebar_label: Golden Atomic Brand References
+---
+
+# Golden Atomic Brand References
+
+The pillar of a brand OS. **A rulebook tells a model what to do; golden references show it what good looks like.** These are the canonical exemplar renders that *are* your brand universe — fed back into an image model as in-context references to generate net-new on-brand assets forever.
+
+<div className="my-5 grid gap-3 sm:grid-cols-3">
+  <div className="rounded-xl border-2 border-brand-ink bg-brand-ground p-4"><b className="font-brand-display block">Golden</b>the best-in-class example of its type</div>
+  <div className="rounded-xl border-2 border-brand-ink bg-brand-ground p-4"><b className="font-brand-display block">Atomic</b>a single, self-contained, reusable unit</div>
+  <div className="rounded-xl border-2 border-brand-ink bg-brand-ground p-4"><b className="font-brand-display block">Brand Reference</b>fed back to the model to seed new assets</div>
+</div>
+
+Store each reference in `static/brand/generation-layer/golden-atomic-brand-references/` **next to the exact prompt that produced it** (`gabr-NN-*.prompt.md`) plus alt text.
+
+## How to build your set
+
+Generate the exemplars that ARE your universe — typically: the mark, a hero/welcome scene, each mascot, your core content atom, your key templates (e.g. a social cover, a card), and a sticker set.
+
+1. **Generate incrementally, validating each.** Human validation is what makes a reference "golden." Never batch-generate blind.
+2. **Store the prompt next to every render.**
+3. **Pass earlier references back in** as input images for any reused element (mark, mascot) so style never drifts.
+4. **Always-on lockup** on finished assets: generate art clean with a reserved band, then **stamp the real wordmark PNG** programmatically — image models garble text.
+
+<div className="rounded-xl border-2 border-brand-ink bg-brand-ground p-6 my-6 text-center">
+  <span className="font-brand-display text-2xl">Your GABR gallery renders here</span><br/>
+  add images to <code>static/brand/generation-layer/golden-atomic-brand-references/</code> and embed them.
+</div>
+
+:::tip[How to use a GABR]
+
+Pass the reference image(s) to your image model alongside the [master prompt](/generation-layer), then describe the *new* asset. The references lock the universe; your prompt varies the subject.
+
+:::

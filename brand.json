@@ -1,0 +1,62 @@
+{
+  "brand": "{{BRAND NAME}}",
+  "lockup": "{{LOCKUP}}",
+  "handle": "{{handle}}",
+  "tagline": "{{TAGLINE}}",
+  "one_liner": "{{the simple version}}",
+  "audience": "{{who it's for}}",
+  "archetype": "{{the character}}",
+  "non_negotiables": ["{{rule 1}}", "{{rule 2}}"],
+  "asset_root": "static/brand/",
+  "served_root": "/brand/",
+  "aesthetic": {
+    "posture": "{{render-brief paragraph}}",
+    "never": ["{{anti-pattern}}", "{{anti-pattern}}"],
+    "master_prompt": "static/brand/generation-layer/master-prompt.md"
+  },
+  "tokens": {
+    "css": "tokens.css",
+    "color": {
+      "ground": "{{#hex}}",
+      "ink": "{{#hex}}",
+      "primary": "{{#hex}}",
+      "accent": "{{#hex}}"
+    },
+    "type": {
+      "display": { "family": "{{Display Font}}", "file": "static/brand/fonts/{{Display.ttf}}" },
+      "body": { "family": "{{Body Font}}", "file": "static/brand/fonts/{{Body.ttf}}" },
+      "source": "Google Fonts",
+      "scale": { "display": "72px", "h1": "32px", "h2": "24px", "body": "18px" }
+    }
+  },
+  "voice": {
+    "motto": "{{the motto}}",
+    "tone": ["{{tone}}"],
+    "banned_words": ["{{word}}"],
+    "banned_visual": ["{{visual term}}"]
+  },
+  "logo": {
+    "primary_lockup": "static/brand/logos/svg/{{lockup}}.svg",
+    "wordmark_transparent": "static/brand/logos/raster/{{wordmark}}.png",
+    "mark": "static/brand/logos/raster/{{mark}}.png",
+    "favicon": "static/brand/logos/crops/favicon.ico",
+    "rules": "{{logo usage rules; always-on lockup method}}"
+  },
+  "golden_atomic_brand_references": {
+    "dir": "static/brand/generation-layer/golden-atomic-brand-references/",
+    "definition": "Golden = best-in-class example of its type; Atomic = a single self-contained reusable unit; Brand Reference = fed back to an image model to generate net-new on-brand assets.",
+    "discipline": "Generated incrementally with human validation; each stored next to its prompt + alt text; pass references in for reused elements to prevent drift.",
+    "references": []
+  },
+  "generation_layer": {
+    "dir": "static/brand/generation-layer/",
+    "master_prompt": "static/brand/generation-layer/master-prompt.md",
+    "example_prompts": "static/brand/generation-layer/example-prompts.md",
+    "banned_terms": "static/brand/generation-layer/banned-terms.md",
+    "spec": "static/brand/generation-layer/illustrations/SPEC.md",
+    "scripts": "static/brand/generation-layer/scripts/"
+  },
+  "portal": { "framework": "Docusaurus 3 + Tailwind v4", "run": "pnpm install && pnpm start" },
+  "manifest": "BRAND.md",
+  "generated_by": "generate-a-brand-os recipe"
+}

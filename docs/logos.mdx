@@ -1,0 +1,31 @@
+---
+title: Logo matrix
+sidebar_label: Logo matrix
+---
+
+# Logo matrix
+
+Your mark is the load-bearing unit — it should work alone, at small sizes, in one color. Generate the **full matrix** (don't ration variants) into `static/brand/logos/`:
+
+- **Mark** — full-color, mono (single ink), knockout (reverse on dark), line-stamp.
+- **Wordmark / lockups** — primary, on-light, knockout-on-dark, horizontal-with-tagline, stacked badge.
+- **Crops** — favicon (16–512 + `.ico`), social avatar, OG lockup (1200×630).
+
+## Build helpers
+
+`static/brand/generation-layer/scripts/` contains reusable tools (adapt filenames to your assets):
+- `build_logo_matrix.py` — derive mono/knockout/crops/favicons from your masters (PIL).
+- `make_transparent_mark.py` — flood-fill the ground to transparency.
+- `build_wordmarks.py` — compose wordmark lockups as real SVG from your fonts + mark, rasterize via `rsvg-convert`.
+
+## Rules to define
+
+- Mark-alone vs lockup usage.
+- Casing (note: many display fonts are all-caps).
+- Light vs dark grounds; minimum clear space.
+- The **always-on lockup**: stamp the real wordmark onto finished assets — don't let an image model draw the text.
+
+<div className="rounded-xl border-2 border-brand-ink bg-brand-ground p-6 my-6 text-center">
+  <span className="font-brand-display text-2xl">Your logo matrix renders here</span><br/>
+  drop PNG/SVG into <code>static/brand/logos/</code> and embed with <code>&lt;img src="/brand/logos/..." /&gt;</code>
+</div>

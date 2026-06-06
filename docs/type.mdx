@@ -1,0 +1,32 @@
+---
+title: Type
+sidebar_label: Type
+---
+
+# Type
+
+Define typefaces by role (display, any accent, body), a web-font source, and a type scale. Ship the font files in `static/brand/fonts/` and point `@font-face` at them in `src/css/custom.css`.
+
+<div className="my-6 rounded-xl border-2 border-brand-ink bg-brand-ground p-6">
+  <div className="text-xs uppercase tracking-widest">Display · [[Display Font]]</div>
+  <div className="font-brand-display text-5xl mt-1">[[BRAND NAME]]</div>
+  <p className="text-sm mt-2 mb-0">Headers and the logo.</p>
+</div>
+
+<div className="my-6 rounded-xl border-2 border-brand-ink bg-brand-ground p-6">
+  <div className="text-xs uppercase tracking-widest">Body · [[Body Font]]</div>
+  <p className="font-brand-body text-base mt-1 mb-0">The quick brown fox. Captions, paragraphs, interface. 0123456789</p>
+</div>
+
+## Scale
+
+| Role | Token | Size |
+|------|-------|------|
+| Display | `--brand-text-display` | 72px |
+| H1 | `--brand-text-h1` | 32px |
+| H2 | `--brand-text-h2` | 24px |
+| Body | `--brand-text-body` | 18px |
+
+## Pairing rules
+
+Define when to use display vs body, and any accent face. Keep body legible at every size.

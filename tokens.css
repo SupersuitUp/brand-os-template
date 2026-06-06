@@ -1,0 +1,54 @@
+/* =========================================================================
+   {{BRAND NAME}} — Brand Tokens (TEMPLATE)
+   Single source of truth for color + type. The portal and any generated
+   site/deck pull from THIS file. Replace every placeholder with your brand.
+   ========================================================================= */
+
+/* ---- Web fonts (replace with your brand fonts) ----
+@import url('https://fonts.googleapis.com/css2?family={{Display+Font}}&family={{Body+Font}}&display=swap');
+*/
+
+:root {
+  /* ---- Core palette (semantic roles) — REPLACE ---- */
+  --brand-ground:    #F4F1EA; /* page / background — rarely pure white */
+  --brand-ink:       #1A1A1A; /* text + line art */
+  --brand-primary:   #2563EB; /* the hero pop */
+  --brand-accent:    #F59E0B; /* signature highlight */
+
+  /* ---- Status ---- */
+  --brand-success:   #16A34A;
+  --brand-warn:      #F59E0B;
+  --brand-error:     #DC2626;
+
+  /* ---- Type families — REPLACE ---- */
+  --brand-font-display: 'Georgia', serif;
+  --brand-font-body:    system-ui, -apple-system, sans-serif;
+
+  /* ---- Type scale (modular) ---- */
+  --brand-text-display: 4.5rem;
+  --brand-text-h1: 2rem;
+  --brand-text-h2: 1.5rem;
+  --brand-text-body: 1.125rem;
+  --brand-text-sm: 1rem;
+
+  /* ---- Lines / radii ---- */
+  --brand-radius: 0.5rem;
+  --brand-line: 2px;
+}
+
+/* =========================================================================
+   Tailwind v4 theme block — mirror these into src/css/custom.css @theme so
+   utilities generate (bg-brand-primary, text-brand-ink, font-brand-display).
+   ========================================================================= */
+@theme {
+  --color-brand-ground:  #F4F1EA;
+  --color-brand-ink:     #1A1A1A;
+  --color-brand-primary: #2563EB;
+  --color-brand-accent:  #F59E0B;
+
+  --font-brand-display: 'Georgia', serif;
+  --font-brand-body:    system-ui, sans-serif;
+}
+
+.brand-page { background: var(--brand-ground); color: var(--brand-ink); font-family: var(--brand-font-body); }
+.brand-display { font-family: var(--brand-font-display); }

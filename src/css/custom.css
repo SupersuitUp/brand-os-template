@@ -1,0 +1,40 @@
+/* Brand OS Template portal theme — Tailwind v4 + Infima, from brand tokens.
+   Replace the placeholder palette/fonts with your brand (mirror tokens.css). */
+
+/* Tailwind v4: theme + utilities layers only (skip preflight so Infima isn't clobbered) */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@source '../../docs/**/*.{md,mdx}';
+@source '../../src/**/*.{ts,tsx,js,jsx}';
+
+/* ---- Brand fonts: drop TTFs into static/brand/fonts/ and point here ----
+@font-face { font-family: 'Display'; src: url('/brand/fonts/Display.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Body';    src: url('/brand/fonts/Body.ttf')    format('truetype'); font-display: swap; }
+*/
+
+/* Tailwind @theme — REPLACE with your brand tokens (mirror tokens.css) */
+@theme {
+  --color-brand-ground:  #F4F1EA;
+  --color-brand-ink:     #1A1A1A;
+  --color-brand-primary: #2563EB;
+  --color-brand-accent:  #F59E0B;
+
+  --font-brand-display: 'Georgia', serif;
+  --font-brand-body:    system-ui, sans-serif;
+}
+
+/* Map Infima onto the brand — REPLACE */
+:root {
+  --ifm-color-primary: #2563EB;
+  --ifm-background-color: #F4F1EA;
+  --ifm-font-color-base: #1A1A1A;
+  --ifm-heading-color: #1A1A1A;
+  --ifm-font-family-base: system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Georgia', serif;
+  --ifm-navbar-background-color: #F4F1EA;
+  --ifm-footer-background-color: #1A1A1A;
+}
+
+.main-wrapper { background-color: var(--color-brand-ground); }
