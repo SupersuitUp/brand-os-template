@@ -53,6 +53,7 @@ NEVER look like (the anti-patterns).}}
 ## Logo matrix (absolute URLs)
 
 ## On-brand asset skills (hosted procedures — follow these to generate)
+- https://{{your-domain}}/brand/generation-layer/skills/create-gabr/SKILL.md
 - https://{{your-domain}}/brand/generation-layer/skills/create-on-brand-image/SKILL.md
 
 ## Golden Atomic Brand References (reference images — pass these to the image model)
