@@ -22,10 +22,6 @@ When an asset reuses a brand element, **pass that element's golden reference in 
 
 **Character references are mandatory, not optional.** Whenever a named character (mascot, persona, recurring figure) appears in a generated asset, pass their GABR. Skipping it produces a plausible-looking but inconsistent result. This includes signature visual details (a crown, a specific color scheme, a distinctive silhouette) that only the reference image reliably carries.
 
-## Opt-in convention for genre shots
-
-Any "signature shot" (a specific camera angle, a POV panel, a recurring visual device) should be **opt-in**, not baked into the master prompt as a default. State it in the master prompt as optional or available-on-request. This prevents it from appearing in every asset regardless of fit.
-
 ## Reference set
 
 Use [`golden-atomic-brand-references/`](./golden-atomic-brand-references/). See [`example-prompts.md`](./example-prompts.md), [`illustrations/SPEC.md`](./illustrations/SPEC.md), and honor [`banned-terms.md`](./banned-terms.md).
