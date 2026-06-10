@@ -115,6 +115,25 @@ const skillUrls = listAssets('generation-layer/skills', ['.md']);
 if (skillUrls.length) { for (const u of skillUrls) A(`- ${u}`); }
 else A('- (none yet — a brand OS should host a create-on-brand-image skill)');
 A('');
+// Characters section — recurring cast from brand.json
+const chars = bj.characters || {};
+if (Object.keys(chars).length) {
+  A('## Characters (recurring cast — always pass the matching GABR as an input image)');
+  for (const [key, c] of Object.entries(chars)) {
+    const name = key.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+    const gabr = c.ref ? url(c.ref) : '';
+    const parts = [];
+    if (c.default_protagonist) parts.push('**default protagonist**');
+    if (c.lean) parts.push(c.lean);
+    if (c.suit) parts.push(c.suit);
+    if (c.form) parts.push(c.form);
+    if (c.signature) parts.push(`signature: ${c.signature}`);
+    if (c.note) parts.push(c.note);
+    A(`- **${name}**${parts.length ? ' — ' + parts.join('; ') : ''}${gabr ? ' → ' + gabr : ''}`);
+  }
+  A('');
+}
+
 A('## Golden Atomic Brand References (reference images — pass these to the image model)');
 for (const u of listAssets('generation-layer/golden-atomic-brand-references', ['.png'])) A(`- ${u}`);
 A('');

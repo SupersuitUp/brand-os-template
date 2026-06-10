@@ -35,6 +35,16 @@
     "banned_words": ["{{word}}"],
     "banned_visual": ["{{visual term}}"]
   },
+  "characters": {
+    "{{protagonist-slug}}": {
+      "ref": "static/brand/generation-layer/golden-atomic-brand-references/gabr-{{nn}}-{{slug}}.png",
+      "lean": "{{role or personality lean}}",
+      "form": "{{visual description — what they look like}}",
+      "signature": "{{the one detail that identifies them instantly}}",
+      "default_protagonist": true,
+      "note": "{{When a human figure appears in any scene without further specification, that is [Name]. Always pass gabr-{{nn}}-{{slug}}.png.}}"
+    }
+  },
   "logo": {
     "primary_lockup": "static/brand/logos/svg/{{lockup}}.svg",
     "wordmark_transparent": "static/brand/logos/raster/{{wordmark}}.png",
