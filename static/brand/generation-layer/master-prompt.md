@@ -18,7 +18,13 @@ Every finished, distributable asset carries the **{{LOCKUP}}** lockup. Don't let
 
 ## Consistency rule
 
-When an asset reuses a brand element, **pass that element's golden reference in as an input image** and instruct an exact match. This is how style stays locked.
+When an asset reuses a brand element, **pass that element's golden reference in as an input image** and instruct an exact match. This is how style stays locked. The model has no memory of prior generations — without the reference, identity drifts every run.
+
+**Character references are mandatory, not optional.** Whenever a named character (mascot, persona, recurring figure) appears in a generated asset, pass their GABR. Skipping it produces a plausible-looking but inconsistent result. This includes signature visual details (a crown, a specific color scheme, a distinctive silhouette) that only the reference image reliably carries.
+
+## Opt-in convention for genre shots
+
+Any "signature shot" (a specific camera angle, a POV panel, a recurring visual device) should be **opt-in**, not baked into the master prompt as a default. State it in the master prompt as optional or available-on-request. This prevents it from appearing in every asset regardless of fit.
 
 ## Reference set
 
