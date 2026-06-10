@@ -12,7 +12,7 @@
   "aesthetic": {
     "posture": "{{render-brief paragraph}}",
     "never": ["{{anti-pattern}}", "{{anti-pattern}}"],
-    "master_prompt": "static/brand/generation-layer/master-prompt.md"
+    "preamble": "static/brand/generation-layer/preamble.md"
   },
   "tokens": {
     "css": "tokens.css",
@@ -60,7 +60,7 @@
   },
   "generation_layer": {
     "dir": "static/brand/generation-layer/",
-    "master_prompt": "static/brand/generation-layer/master-prompt.md",
+    "preamble": "static/brand/generation-layer/preamble.md",
     "example_prompts": "static/brand/generation-layer/example-prompts.md",
     "banned_terms": "static/brand/generation-layer/banned-terms.md",
     "spec": "static/brand/generation-layer/illustrations/SPEC.md",

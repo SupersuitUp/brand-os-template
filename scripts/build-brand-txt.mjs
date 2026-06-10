@@ -44,8 +44,8 @@ const read = (...parts) => {
   return existsSync(p) ? readFileSync(p, 'utf8').trim() : '';
 };
 
-// Inline the master prompt (prefer the fenced code-block body)
-let mp = read('generation-layer', 'master-prompt.md');
+// Inline the preamble (prefer the fenced code-block body)
+let mp = read('generation-layer', 'preamble.md');
 if (mp.includes('```')) {
   const body = mp.split('```')[1] || '';
   mp = body.replace(/^[^\n]*\n/, '').trim(); // drop the ```text info line
@@ -82,7 +82,7 @@ A('3. Describe the new asset. Honor the BANNED TERMS.');
 A('4. For finished/distributable assets, STAMP the real wordmark PNG (linked below) into a reserved band — do not let the model draw the wordmark text.');
 A('5. Use the COLOR + TYPE tokens for any code/site/deck.');
 A('');
-A('## Master prompt (copy verbatim, prepend to any request)');
+A('## Preamble (copy verbatim, prepend to every image generation request — then append the REFERENCE IMAGES block naming each GABR you pass, then the per-asset description)');
 A('```text');
 A(mp);
 A('```');
