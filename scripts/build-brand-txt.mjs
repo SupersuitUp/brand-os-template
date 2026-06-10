@@ -135,7 +135,21 @@ if (Object.keys(chars).length) {
 }
 
 A('## Golden Atomic Brand References (reference images — pass these to the image model)');
-for (const u of listAssets('generation-layer/golden-atomic-brand-references', ['.png'])) A(`- ${u}`);
+const gabrRefs = bj.golden_atomic_brand_references?.references || [];
+const gabrMeta = {};
+for (const ref of gabrRefs) {
+  if (ref && typeof ref === 'object' && ref.file) gabrMeta[ref.file] = ref;
+}
+for (const u of listAssets('generation-layer/golden-atomic-brand-references', ['.png'])) {
+  const filename = u.split('/').pop();
+  const meta = gabrMeta[filename];
+  if (meta) {
+    const line = `- **${filename}** — ${meta.description}${meta.when ? ' | pass when: ' + meta.when : ''} → ${u}`;
+    A(line);
+  } else {
+    A(`- ${u}`);
+  }
+}
 A('');
 A('## Fonts');
 for (const u of listAssets('fonts', ['.ttf', '.woff', '.woff2', '.otf'])) A(`- ${u}`);

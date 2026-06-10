@@ -56,7 +56,13 @@
     "dir": "static/brand/generation-layer/golden-atomic-brand-references/",
     "definition": "Golden = best-in-class example of its type; Atomic = a single self-contained reusable unit; Brand Reference = fed back to an image model to generate net-new on-brand assets.",
     "discipline": "Generated incrementally with human validation; each stored next to its prompt + alt text; pass references in for reused elements to prevent drift.",
-    "references": []
+    "references": [
+      {
+        "file": "gabr-{{nn}}-{{slug}}.png",
+        "description": "{{What this reference image depicts — character, scene, style, or format.}}",
+        "when": "{{When to pass this as an input image — what type of asset or scene requires it.}}"
+      }
+    ]
   },
   "generation_layer": {
     "dir": "static/brand/generation-layer/",
