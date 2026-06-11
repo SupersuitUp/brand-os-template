@@ -73,6 +73,7 @@ A(`- One-liner: ${bj.one_liner || ''}`);
 A(`- Audience: ${bj.audience || ''}`);
 A(`- Archetype: ${bj.archetype || ''}`);
 for (const nn of bj.non_negotiables || []) A(`- Non-negotiable: ${nn}`);
+if (bj.id) A(`- ID: ${bj.id}  ← local cache: ~/.agents/agentic_brand_oses/${bj.id}/`);
 A('');
 A('## How to generate an on-brand asset');
 A('Fastest path: follow a HOSTED SKILL below (it automates these steps). Otherwise, by hand:');
@@ -132,6 +133,19 @@ if (Object.keys(chars).length) {
     A(`- **${name}**${parts.length ? ' — ' + parts.join('; ') : ''}${gabr ? ' → ' + gabr : ''}`);
   }
   A('');
+}
+
+// Graphic types section — named output formats with per-type prompt suffix + auto-GABRs
+const gts = bj.graphic_types || [];
+if (gts.length) {
+  A('## Graphic types (named output formats — use --type <slug> to invoke)');
+  for (const gt of gts) {
+    A(`- **${gt.slug}** — ${gt.description}`);
+    A(`  suffix: "${gt.suffix}"`);
+    A(`  size: ${gt.size}`);
+    if (gt.auto_gabrs?.length) A(`  auto-gabrs: ${gt.auto_gabrs.join(', ')}`);
+    A('');
+  }
 }
 
 A('## Golden Atomic Brand References (reference images — pass these to the image model)');

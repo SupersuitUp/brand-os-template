@@ -1,5 +1,6 @@
 {
   "brand": "{{BRAND NAME}}",
+  "id": "{{brand-id-slug}}",
   "lockup": "{{LOCKUP}}",
   "handle": "{{handle}}",
   "tagline": "{{TAGLINE}}",
@@ -64,6 +65,15 @@
       }
     ]
   },
+  "graphic_types": [
+    {
+      "slug": "{{type-slug}}",
+      "description": "{{What this output type is — e.g. single-panel editorial scene, three-panel comic strip.}}",
+      "suffix": "{{Prompt suffix appended verbatim for this type.}}",
+      "auto_gabrs": ["{{gabr-filename-auto-passed-for-this-type.png}}"],
+      "size": "1536x1024"
+    }
+  ],
   "generation_layer": {
     "dir": "static/brand/generation-layer/",
     "preamble": "static/brand/generation-layer/preamble.md",
