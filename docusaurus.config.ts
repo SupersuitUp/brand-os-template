@@ -10,7 +10,7 @@ const config: Config = {
   tagline: '{{TAGLINE}}',
   favicon: 'img/favicon.ico',
 
-  future: {v4: true},
+  future: {v4: true, faster: true},
 
   url: 'https://{{your-domain}}',
   baseUrl: '/',
