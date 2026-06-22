@@ -34,6 +34,8 @@ REFERENCE IMAGES PASSED — match each exactly:
 
 3. **The per-asset description** — the specific asset to generate (panels, scenes, copy).
 
+Character references are mandatory, not optional. Pass the matching GABR for every recurring character whenever they appear. State the character's appearance in the prompt text AND pass their GABR as an input image — both are required.
+
 ### Which GABRs to pass
 
 Always pass all that apply as `--input-image` flags. Populate this table as GABRs are added to the brand:

@@ -15,6 +15,7 @@ Format: the brand.txt standard — https://www.appliedai.wiki/reference/standard
 - Archetype: {{the character}}
 - Non-negotiable: {{rule 1}}
 - Non-negotiable: {{rule 2}}
+- ID: {{brand-id-slug}}  ← local cache: ~/.agents/agentic_brand_oses/{{brand-id-slug}}/
 
 ## How to generate an on-brand asset
 Fastest path: follow a HOSTED SKILL below (it automates these steps). Otherwise, by hand:
@@ -24,12 +25,16 @@ Fastest path: follow a HOSTED SKILL below (it automates these steps). Otherwise,
 4. For finished/distributable assets, STAMP the real wordmark PNG (linked below) into a reserved band — do not let the model draw the wordmark text.
 5. Use the COLOR + TYPE tokens for any code/site/deck.
 
-## Master prompt (copy verbatim, prepend to any request)
+## Preamble (copy verbatim, prepend to every image generation request — then append the REFERENCE IMAGES block naming each GABR you pass, then the per-asset description)
 ```text
-{{Your render brief. Cover: the ground/background, the line/illustration style,
-the color treatment (reference your tokens), texture, lighting, recurring
-mascots/motifs, the overall energy/feeling. State margins. State what it must
-NEVER look like (the anti-patterns).}}
+{{Your render brief. Cover: the visual register (illustration style, color treatment,
+lighting, texture, ground/background per format, overall energy). Describe the primary
+recurring figure — their appearance, their defining visual details, what the model must
+always reproduce exactly. Describe any secondary characters. State all hard rules inline
+(what must NEVER appear, what must always be present, which rules override everything).
+State comic format conventions if applicable. End with a moderation note for any
+IP-safety concerns. Be comprehensive — this entire block goes to the image model on
+every request.}}
 ```
 
 ## Color tokens
@@ -55,6 +60,15 @@ NEVER look like (the anti-patterns).}}
 ## On-brand asset skills (hosted procedures — follow these to generate)
 - https://{{your-domain}}/brand/generation-layer/skills/create-gabr/SKILL.md
 - https://{{your-domain}}/brand/generation-layer/skills/create-on-brand-image/SKILL.md
+
+## Characters (recurring cast — always pass the matching GABR as an input image)
+- **{{Protagonist-Slug}}** — **default protagonist**; {{role or personality lean}}; {{visual description — what they look like}}; signature: {{the one detail that identifies them instantly}}; {{When a human figure appears in any scene without further specification, that is [Name]. Always pass gabr-{{nn}}-{{slug}}.png.}} → https://{{your-domain}}/brand/generation-layer/golden-atomic-brand-references/gabr-{{nn}}-{{slug}}.png
+
+## Graphic types (named output formats — use --type <slug> to invoke)
+- **{{type-slug}}** — {{What this output type is — e.g. single-panel editorial scene, three-panel comic strip.}}
+  suffix: "{{Prompt suffix appended verbatim for this type.}}"
+  size: 1536x1024
+  auto-gabrs: {{gabr-filename-auto-passed-for-this-type.png}}
 
 ## Golden Atomic Brand References (reference images — pass these to the image model)
 
