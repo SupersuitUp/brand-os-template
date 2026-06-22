@@ -22,6 +22,14 @@ const config: Config = {
 
   i18n: {defaultLocale: 'en', locales: ['en']},
 
+  // OPTIONAL password gate for the human-browsable portal (see src/theme/Root.tsx).
+  // Uncomment and set a password to activate BOTH the gate and the per-page
+  // "Copy share link" buttons (which mint <url>?key=<password>). Leave it
+  // commented out for a fully public portal — the gate and share buttons stay
+  // dormant. Static assets (/brand.txt, /brand/**) stay reachable either way.
+  // Rotate by changing this value and bumping STORAGE_KEY's _vN in Root.tsx.
+  // customFields: {wikiPassword: '{{PASSWORD}}'},
+
   plugins: [
     // Tailwind v4 via the Docusaurus PostCSS hook.
     function tailwindPlugin() {
