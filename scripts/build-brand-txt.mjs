@@ -165,6 +165,25 @@ for (const u of listAssets('generation-layer/golden-atomic-brand-references', ['
   }
 }
 A('');
+// Golden Atomic Brand Templates — coded HTML/CSS rendered to exact pixels.
+// Use for any asset whose numbers or copy must be exact (image models garble text/digits).
+A('## Golden Atomic Brand Templates (coded HTML/CSS rendered to exact pixels — use when numbers or copy must be exact)');
+const gabts = bj.golden_atomic_brand_templates?.templates || [];
+if (gabts.length) {
+  for (const t of gabts) {
+    const tUrl = t.path ? `${BASE}/${String(t.path).replace(/^.*?static\//, '').replace(/^\/+/, '')}` : '';
+    const parts = [
+      `- **${t.slug}**${t.kind ? ` (${t.kind})` : ''} — ${t.description || ''}`,
+      t.when ? `use when: ${t.when}` : '',
+      t.render ? `render: ${t.render}` : '',
+      t.size ? `size: ${t.size}` : '',
+    ].filter(Boolean);
+    A(`${parts.join(' | ')}${tUrl ? ` → ${tUrl}` : ''}`);
+  }
+} else {
+  A('- (none yet — add a GABT for any asset whose numbers or copy must be exact: stat card / data slide, scorecard, before/after table, OG card)');
+}
+A('');
 A('## Fonts');
 for (const u of listAssets('fonts', ['.ttf', '.woff', '.woff2', '.otf'])) A(`- ${u}`);
 A('');

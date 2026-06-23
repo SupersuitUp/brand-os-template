@@ -74,6 +74,22 @@
       "size": "1536x1024"
     }
   ],
+  "golden_atomic_brand_templates": {
+    "dir": "templates/",
+    "definition": "Golden = best-in-class and human-validated; Atomic = one self-contained reusable unit; Brand Template = coded HTML/CSS filled with per-instance props and rendered to exact pixels. The coded twin of the GABR.",
+    "rule": "Any asset whose numbers or copy must be exact (data slide / stat card, scorecard, before/after table, open-graph card) is a GABT, never a generated GABR — image models garble text and digits.",
+    "templates": [
+      {
+        "slug": "{{template-slug}}",
+        "kind": "{{data-slide | scorecard | before-after-table | og-card | banner}}",
+        "description": "{{What this template renders.}}",
+        "when": "{{When an agent should reach for it instead of generating an image.}}",
+        "render": "{{The render command, e.g. ./templates/{{slug}}/render.sh}}",
+        "size": "1080x1080",
+        "path": "templates/{{template-slug}}/"
+      }
+    ]
+  },
   "generation_layer": {
     "dir": "static/brand/generation-layer/",
     "preamble": "static/brand/generation-layer/preamble.md",

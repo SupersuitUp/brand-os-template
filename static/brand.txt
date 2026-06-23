@@ -72,6 +72,9 @@ every request.}}
 
 ## Golden Atomic Brand References (reference images — pass these to the image model)
 
+## Golden Atomic Brand Templates (coded HTML/CSS rendered to exact pixels — use when numbers or copy must be exact)
+- **{{template-slug}}** ({{data-slide | scorecard | before-after-table | og-card | banner}}) — {{What this template renders.}} | use when: {{When an agent should reach for it instead of generating an image.}} | render: {{The render command, e.g. ./templates/{{slug}}/render.sh}} | size: 1080x1080 → https://{{your-domain}}/templates/{{template-slug}}/
+
 ## Fonts
 
 ## Tokens + manifest
