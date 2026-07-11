@@ -46,6 +46,27 @@ test('compileEntity emits header, per-era descriptors, PASS, VERIFY', () => {
   assert.equal(lines[lines.length - 1], '');
 });
 
+test('person manifest with an era missing desc produces a validation error naming the era', () => {
+  const e = {
+    dir: '/tmp/x', slug: 'no-desc-person', parseError: null,
+    manifest: {
+      slug: 'no-desc-person', type: 'person', name: 'Deskless',
+      authority: {locked_by: 'Gary', locked_on: '2026-07-10'},
+      identity: {form: 'a small orange test mascot with a round face'},
+      references: {primary: 'front.png'}, angles: {},
+      wardrobe: {default: 'everyday', eras: {everyday: {}}},
+    },
+  };
+  const errors = validateManifest(e);
+  assert.ok(errors.some((m) => m === 'no-desc-person: wardrobe.eras.everyday.desc must be a non-empty string'));
+});
+
+test('non-object manifest (null) produces a single clean error, not a crash', () => {
+  const e = {dir: '/tmp/x', slug: 'null-manifest', manifest: null, parseError: null};
+  const errors = validateManifest(e);
+  assert.deepEqual(errors, ['null-manifest: manifest must be a JSON object']);
+});
+
 test('compileEntity for a place folds geometry/population into one descriptor', () => {
   const e = {
     dir: '/tmp/x', slug: 'the-spot', parseError: null,

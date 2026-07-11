@@ -26,6 +26,9 @@ export function discoverEntities(canonRootAbs) {
 export function validateManifest(entity) {
   const {manifest: m, dir, slug, parseError} = entity;
   if (parseError) return [`${slug}: manifest.json is not valid JSON (${parseError})`];
+  if (typeof m !== 'object' || m === null || Array.isArray(m)) {
+    return [`${slug}: manifest must be a JSON object`];
+  }
   const errors = [];
   const need = (cond, msg) => { if (!cond) errors.push(`${slug}: ${msg}`); };
   need(m.slug === slug, `manifest slug "${m.slug}" must match folder name "${slug}"`);
@@ -48,6 +51,10 @@ export function validateManifest(entity) {
   if (m.type === 'person' && m.wardrobe) {
     need(!!(m.wardrobe.default && m.wardrobe.eras && m.wardrobe.eras[m.wardrobe.default]),
       'wardrobe.default must name a key in wardrobe.eras');
+    for (const [name, era] of Object.entries(m.wardrobe.eras || {})) {
+      need(!!(era && typeof era.desc === 'string' && era.desc.length > 0),
+        `wardrobe.eras.${name}.desc must be a non-empty string`);
+    }
   }
   return errors;
 }
@@ -58,7 +65,7 @@ export function compileEntity(entity, urlFn, relDirFromRepo) {
   const auth = m.authority;
   L.push(`### ${m.name} (${m.type}) — locked by ${auth.locked_by} ${auth.locked_on}${auth.origin ? `, origin: ${auth.origin}` : ''}`);
   if (m.role) L.push(`Role: ${m.role}`);
-  const base = [m.identity.form, ...((m.identity && m.identity.hard_rules) || [])];
+  const base = [m.identity.form, ...(m.identity.hard_rules || [])];
   const never = (m.never || []).length ? ` NEVER: ${m.never.join('; ')}.` : '';
   const eras = m.type === 'person' && m.wardrobe && m.wardrobe.eras ? Object.entries(m.wardrobe.eras) : null;
   if (eras && eras.length) {
