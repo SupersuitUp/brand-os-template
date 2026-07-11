@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canon OS entity manifest",
+  "description": "One folder per recurring visual entity under static/brand/canon/<slug>/. The validator in canon.mjs enforces the required subset; this file is the authoritative field reference.",
+  "type": "object",
+  "required": ["slug", "type", "name", "authority", "identity", "references"],
+  "properties": {
+    "slug": { "type": "string", "description": "Must equal the folder name." },
+    "type": { "enum": ["person", "place", "prop"] },
+    "name": { "type": "string" },
+    "role": { "type": "string" },
+    "authority": {
+      "type": "object",
+      "required": ["locked_by", "locked_on"],
+      "properties": {
+        "locked_by": { "type": "string" },
+        "locked_on": { "type": "string", "description": "YYYY-MM-DD" },
+        "origin": { "type": "string", "description": "Brand/book where canon originates, for imported entities." },
+        "note": { "type": "string" }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "required": ["form"],
+      "properties": {
+        "form": { "type": "string", "description": "Prose visual description; first sentence of every compiled descriptor." },
+        "hard_rules": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "references": {
+      "type": "object",
+      "description": "role -> filename co-located in this folder. Conventional roles: primary, face, turnaround, back_detail, expressions.",
+      "additionalProperties": { "type": "string" }
+    },
+    "angles": {
+      "type": "object",
+      "description": "view -> list of reference roles that MUST be passed for that view (front/back/side/...).",
+      "additionalProperties": { "type": "array", "items": { "type": "string" } }
+    },
+    "wardrobe": {
+      "type": "object",
+      "description": "person only. The face never changes era to era; only wardrobe and age markers do.",
+      "properties": {
+        "default": { "type": "string" },
+        "eras": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["desc"],
+            "properties": { "spreads": { "type": "string" }, "desc": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "description": "person only.",
+      "properties": {
+        "speech": { "type": "string" },
+        "narration_voice_id": { "type": "string", "description": "ElevenLabs voice ID." }
+      }
+    },
+    "geometry": { "type": "string", "description": "place only: locked spatial description." },
+    "lighting": { "type": "string", "description": "place only." },
+    "population": { "type": "string", "description": "place only, e.g. 'exactly four people unless the spread says otherwise'." },
+    "construction": { "type": "string", "description": "prop only: locked build description." },
+    "scale": { "type": "string", "description": "prop only: relation to figures." },
+    "verification": { "type": "array", "items": { "type": "string" }, "description": "Machine-readable read-back checklist (crop-zoom targets)." },
+    "never": { "type": "array", "items": { "type": "string" }, "description": "Drift blacklist." }
+  }
+}

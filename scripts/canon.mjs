@@ -51,3 +51,35 @@ export function validateManifest(entity) {
   }
   return errors;
 }
+
+export function compileEntity(entity, urlFn, relDirFromRepo) {
+  const m = entity.manifest;
+  const L = [];
+  const auth = m.authority;
+  L.push(`### ${m.name} (${m.type}) — locked by ${auth.locked_by} ${auth.locked_on}${auth.origin ? `, origin: ${auth.origin}` : ''}`);
+  if (m.role) L.push(`Role: ${m.role}`);
+  const base = [m.identity.form, ...((m.identity && m.identity.hard_rules) || [])];
+  const never = (m.never || []).length ? ` NEVER: ${m.never.join('; ')}.` : '';
+  const eras = m.type === 'person' && m.wardrobe && m.wardrobe.eras ? Object.entries(m.wardrobe.eras) : null;
+  if (eras && eras.length) {
+    for (const [era, e] of eras) {
+      const scope = e.spreads ? `, spreads ${e.spreads}` : '';
+      L.push(`DESCRIPTOR (${era}${scope}): ${base.join('. ')}. ${e.desc}.${never}`);
+    }
+  } else {
+    const extra = [m.geometry, m.lighting, m.population, m.construction, m.scale].filter(Boolean);
+    L.push(`DESCRIPTOR: ${[...base, ...extra].join('. ')}.${never}`);
+  }
+  const angleEntries = Object.entries(m.angles || {}).filter(([, roles]) => (roles || []).length);
+  if (angleEntries.length) {
+    const parts = angleEntries.map(([angle, roles]) =>
+      `${angle}: ${roles.map((r) => urlFn(`${relDirFromRepo}/${m.references[r]}`)).join(', ')}`);
+    L.push(`PASS ${parts.join(' · ')}`);
+  }
+  if ((m.verification || []).length) L.push(`VERIFY ON READ-BACK: ${m.verification.join(' · ')}`);
+  if (m.voice && m.voice.narration_voice_id) {
+    L.push(`NARRATION VOICE: ${m.voice.narration_voice_id}${m.voice.speech ? ` (${m.voice.speech})` : ''}`);
+  }
+  L.push('');
+  return L;
+}
