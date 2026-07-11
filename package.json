@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "brand-txt": "node scripts/build-brand-txt.mjs",
-    "test": "node --test scripts/",
+    "test": "node --test scripts/*.test.mjs",
     "prestart": "node scripts/build-brand-txt.mjs",
     "prebuild": "node scripts/build-brand-txt.mjs",
     "start": "docusaurus start",
