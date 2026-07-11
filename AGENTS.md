@@ -10,4 +10,6 @@ Then, depending on what you need:
 - **[`brand.json`](./brand.json)** — the structured data (source of truth for facts: tokens, logo paths, voice, GABRs).
 - **`/brand.txt`** (served) — the generated agent **prime**: essentials inlined with absolute asset URLs. Paste this one link into any agent harness.
 
+The build generates `/brand.txt` via `scripts/build-brand-txt.mjs`. The canonical build machinery includes **`scripts/canon.mjs`**, which validates and compiles entity dossiers from `static/brand/canon/`; the `update-brand-os-standard` skill maintains both. All canon/ dossiers are validated at build time — missing fields or files fail the build loudly.
+
 Do not guess the brand from memory. Read BRAND.md / brand.json / brand.txt.

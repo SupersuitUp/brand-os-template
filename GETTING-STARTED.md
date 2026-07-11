@@ -29,15 +29,35 @@ Into `static/brand/`:
 - **`logos/`** — the full matrix (mark, wordmark, lockups; color/mono/knockout; crops). The `generation-layer/scripts/` helpers build mono/knockout/crops and compose wordmark lockups from your masters.
 - **`generation-layer/golden-atomic-brand-references/`** — the pillar. Generate your exemplar renders one at a time, validate each, and store each next to its prompt (`gabr-NN-*.prompt.md`).
 
-## 5. Write the generation layer
+## 5. Canon OS: entity dossiers (characters, mascots, places, props)
+
+Any recurring visual entity gets a folder under `static/brand/canon/<slug>/`:
+`manifest.json` plus that entity's reference images (front, face, turnaround,
+back detail). The build validates every manifest (missing fields or files fail
+the build) and compiles each one into a paste-verbatim DESCRIPTOR + required
+PASS refs per angle + a VERIFY read-back checklist in brand.txt.
+
+Rules the schema encodes:
+- **The dossier is the source of truth.** A render that disagrees with it is a
+  defective render. Only the `authority.locked_by` person relocks a dossier.
+- **Multi-angle always.** If an entity will ever be seen from behind or the
+  side, lock those references before production and map them in `angles`.
+- **Descriptors are compiled, never hand-written.** Paste from brand.txt.
+
+Field reference: `scripts/canon-manifest.schema.json`. Starter:
+`static/brand/canon/example-mascot/` (make it real or delete it).
+The old flat `characters` block in brand.json still works; canon/ is where new
+entities go.
+
+## 6. Write the generation layer
 
 In `static/brand/generation-layer/`: fill `master-prompt.md`, `example-prompts.md`, `banned-terms.md`, `illustrations/SPEC.md`.
 
-## 6. Fill the portal pages
+## 7. Fill the portal pages
 
 Edit `docs/*.mdx` (logos, color, type, voice, golden-atomic-brand-references, generation-layer) and `docs/index.mdx`. Update `docusaurus.config.ts` (title, tagline, url, footer) and `sidebars.ts`.
 
-## 7. Ship
+## 8. Ship
 
 `pnpm build`, then deploy (Vercel auto-detects Docusaurus). Commit each generation prompt next to its output.
 
