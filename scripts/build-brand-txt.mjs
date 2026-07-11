@@ -13,6 +13,7 @@
 import {readFileSync, writeFileSync, readdirSync, statSync, existsSync} from 'node:fs';
 import {join, relative, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {discoverEntities, validateManifest, compileEntity} from './canon.mjs';
 
 const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BRAND = join(REPO, 'static', 'brand');
@@ -133,6 +134,27 @@ if (Object.keys(chars).length) {
     A(`- **${name}**${parts.length ? ' — ' + parts.join('; ') : ''}${gabr ? ' → ' + gabr : ''}`);
   }
   A('');
+}
+
+// Canon OS section — entity dossiers compiled from canon/<slug>/manifest.json.
+// Spec: garyinparadise/docs/strategic-documents/2026-07-10-canon-os-design.md
+if (bj.canon?.root) {
+  const canonAbs = join(REPO, bj.canon.root.replace(/\/+$/, ''));
+  const entities = discoverEntities(canonAbs);
+  const canonErrors = entities.flatMap((e) => validateManifest(e));
+  if (canonErrors.length) {
+    console.error('[brand.txt] CANON VALIDATION FAILED — fix the manifests below (the build is halted so a broken dossier can never ship):');
+    for (const err of canonErrors) console.error('  - ' + err);
+    process.exit(1);
+  }
+  if (entities.length) {
+    A('## Canon (compiled descriptors — paste verbatim, never paraphrase)');
+    A('Every recurring visual entity (person/place/prop). The DESCRIPTOR lines are compiled from the entity manifests: paste them into prompts verbatim, pass every PASS url for the view you are rendering, and run the VERIFY checklist on every read-back. A render that disagrees with a dossier is a defective render; only the locking authority relocks a dossier.');
+    A('');
+    for (const e of entities) {
+      for (const line of compileEntity(e, url, relative(REPO, e.dir))) A(line);
+    }
+  }
 }
 
 // Graphic types section — named output formats with per-type prompt suffix + auto-GABRs
