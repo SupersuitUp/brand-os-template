@@ -46,6 +46,7 @@
       "note": "{{When a human figure appears in any scene without further specification, that is [Name]. Always pass gabr-{{nn}}-{{slug}}.png.}}"
     }
   },
+  "canon": { "root": "static/brand/canon/" },
   "logo": {
     "primary_lockup": "static/brand/logos/svg/{{lockup}}.svg",
     "wordmark_transparent": "static/brand/logos/raster/{{wordmark}}.png",

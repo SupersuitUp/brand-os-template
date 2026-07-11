@@ -1,0 +1,8 @@
+{
+  "slug": "broken-entity",
+  "type": "creature",
+  "name": "Broken",
+  "authority": { "locked_by": "Gary", "locked_on": "2026-07-10" },
+  "references": { "primary": "missing.png" },
+  "angles": { "front": ["primary", "ghost-role"] }
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "example-mascot",
+  "type": "person",
+  "name": "{{Mascot Name}}",
+  "role": "{{brand mascot / spokesperson — delete this folder or make it real when forking}}",
+  "authority": { "locked_by": "{{owner}}", "locked_on": "{{YYYY-MM-DD}}" },
+  "identity": {
+    "form": "{{prose visual description — species/build/face/palette}}",
+    "hard_rules": ["{{the one detail that must never drift, e.g. garment mark, eye rule}}"]
+  },
+  "references": { "primary": "front.png" },
+  "angles": { "front": ["primary"] },
+  "wardrobe": {
+    "default": "everyday",
+    "eras": { "everyday": { "desc": "{{signature outfit incl. exact patch/mark placement}}" } }
+  },
+  "verification": ["{{crop-zoom target: what to check on every read-back}}"],
+  "never": ["{{drift blacklist: logos, extra accessories, redesigns}}"]
+}

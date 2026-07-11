@@ -1,0 +1,19 @@
+{
+  "slug": "valid-person",
+  "type": "person",
+  "name": "Testy",
+  "role": "fixture mascot",
+  "authority": { "locked_by": "Gary", "locked_on": "2026-07-10" },
+  "identity": {
+    "form": "a small orange test mascot with a round face",
+    "hard_rules": ["always has exactly three freckles"]
+  },
+  "references": { "primary": "front.png", "turnaround": "turnaround.png" },
+  "angles": { "front": ["primary"], "back": ["turnaround"] },
+  "wardrobe": {
+    "default": "everyday",
+    "eras": { "everyday": { "desc": "blue overalls with a brass button" } }
+  },
+  "verification": ["crop-zoom face: three freckles present"],
+  "never": ["a fourth freckle"]
+}

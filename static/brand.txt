@@ -64,6 +64,15 @@ every request.}}
 ## Characters (recurring cast — always pass the matching GABR as an input image)
 - **{{Protagonist-Slug}}** — **default protagonist**; {{role or personality lean}}; {{visual description — what they look like}}; signature: {{the one detail that identifies them instantly}}; {{When a human figure appears in any scene without further specification, that is [Name]. Always pass gabr-{{nn}}-{{slug}}.png.}} → https://{{your-domain}}/brand/generation-layer/golden-atomic-brand-references/gabr-{{nn}}-{{slug}}.png
 
+## Canon (compiled descriptors — paste verbatim, never paraphrase)
+Every recurring visual entity (person/place/prop). The DESCRIPTOR lines are compiled from the entity manifests: paste them into prompts verbatim, pass every PASS url for the view you are rendering, and run the VERIFY checklist on every read-back. A render that disagrees with a dossier is a defective render; only the locking authority relocks a dossier.
+
+### {{Mascot Name}} (person) — locked by {{owner}} {{YYYY-MM-DD}}
+Role: {{brand mascot / spokesperson — delete this folder or make it real when forking}}
+DESCRIPTOR (everyday): {{prose visual description — species/build/face/palette}}. {{the one detail that must never drift, e.g. garment mark, eye rule}}. {{signature outfit incl. exact patch/mark placement}}. NEVER: {{drift blacklist: logos, extra accessories, redesigns}}.
+PASS front: https://{{your-domain}}/brand/canon/example-mascot/front.png
+VERIFY ON READ-BACK: {{crop-zoom target: what to check on every read-back}}
+
 ## Graphic types (named output formats — use --type <slug> to invoke)
 - **{{type-slug}}** — {{What this output type is — e.g. single-panel editorial scene, three-panel comic strip.}}
   suffix: "{{Prompt suffix appended verbatim for this type.}}"
