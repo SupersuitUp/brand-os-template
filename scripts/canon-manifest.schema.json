@@ -63,6 +63,8 @@
     "geometry": { "type": "string", "description": "place only: locked spatial description." },
     "lighting": { "type": "string", "description": "place only." },
     "population": { "type": "string", "description": "place only, e.g. 'exactly four people unless the spread says otherwise'." },
+    "blocking": { "type": "string", "description": "place only: default positions of the recurring cast on this set (the seating chart). Applies to group scenes unless a spread's bracket deliberately overrides it. Lock the set + default blocking, NOT the camera." },
+    "dressing": { "type": "array", "items": { "type": "string" }, "description": "place only: always-present set props with fixed positions (e.g. the lemonade table), present in every group scene on this set." },
     "construction": { "type": "string", "description": "prop only: locked build description." },
     "scale": { "type": "string", "description": "prop only: relation to figures." },
     "verification": { "type": "array", "items": { "type": "string" }, "description": "Machine-readable read-back checklist (crop-zoom targets)." },

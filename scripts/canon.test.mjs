@@ -84,3 +84,22 @@ test('compileEntity for a place folds geometry/population into one descriptor', 
   assert.ok(lines[0].includes('origin: origin-book'));
   assert.ok(text.includes('DESCRIPTOR: a porch with plank steps. steps face the river; one hanging lamp. exactly four people unless the spread says otherwise.'));
 });
+
+test('compileEntity for a place folds blocking and dressing into the descriptor', () => {
+  const e = {
+    dir: '/tmp/x', slug: 'the-set', parseError: null,
+    manifest: {
+      slug: 'the-set', type: 'place', name: 'The Set',
+      authority: {locked_by: 'Gary', locked_on: '2026-07-14'},
+      identity: {form: 'a porch'},
+      geometry: 'steps face the river',
+      population: 'exactly four people unless the spread says otherwise',
+      blocking: 'Jerry top step; Dre lower-left; Hana front-center; Theo lower-right',
+      dressing: ['a side table downstage-right with the lemonade pitcher and glasses', 'one hanging cream lamp by the door'],
+      references: {}, angles: {},
+    },
+  };
+  const text = compileEntity(e, (rel) => rel, 'canon/the-set').join('\n');
+  assert.ok(text.includes('Jerry top step; Dre lower-left; Hana front-center; Theo lower-right'));
+  assert.ok(text.includes('a side table downstage-right with the lemonade pitcher and glasses; one hanging cream lamp by the door'));
+});

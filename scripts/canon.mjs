@@ -74,7 +74,8 @@ export function compileEntity(entity, urlFn, relDirFromRepo) {
       L.push(`DESCRIPTOR (${era}${scope}): ${base.join('. ')}. ${e.desc}.${never}`);
     }
   } else {
-    const extra = [m.geometry, m.lighting, m.population, m.construction, m.scale].filter(Boolean);
+    const dressing = Array.isArray(m.dressing) ? m.dressing.join('; ') : m.dressing;
+    const extra = [m.geometry, m.lighting, m.population, m.blocking, dressing, m.construction, m.scale].filter(Boolean);
     L.push(`DESCRIPTOR: ${[...base, ...extra].join('. ')}.${never}`);
   }
   const angleEntries = Object.entries(m.angles || {}).filter(([, roles]) => (roles || []).length);
